@@ -16,6 +16,7 @@ use App\Http\Livewire\Admin\StatusOrder;
 use App\Http\Livewire\Admin\ShowDepartment;
 use App\Http\Livewire\Admin\UserComponent;
 use App\Http\Controllers\Admin\PromocionController;
+use App\Http\Controllers\Admin\LogoTiendaController;
 
 use App\Http\Livewire\Admin\ShowBanner;
 use App\Http\Livewire\Admin\ShowPromocion;
@@ -79,6 +80,8 @@ Route::get('banners/{banner}', ShowBanner::class)->name('admin.banners.show');
 
 Route::get('promocions', [PromocionController::class, 'index'])->name('admin.promocions.index');
 Route::get('promocions/{promocion}', ShowPromocion::class)->name('admin.promocions.show');
+
+Route::get('logotiendas', [LogoTiendaController::class, 'index'])->name('admin.logotienda.index');
 
 //Invoice
 Route::get('Invoice', function () {

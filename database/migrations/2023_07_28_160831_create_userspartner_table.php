@@ -37,3 +37,5 @@ class CreateUserspartnerTable extends Migration
         Schema::dropIfExists('userspartner');
     }
 }
+
+

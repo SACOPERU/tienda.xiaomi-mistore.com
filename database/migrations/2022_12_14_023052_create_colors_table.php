@@ -31,3 +31,13 @@ class CreateColorsTable extends Migration
         Schema::dropIfExists('colors');
     }
 }
+
+
+
+
+
+
+
+
+
+

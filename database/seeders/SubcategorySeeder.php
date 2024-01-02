@@ -33,8 +33,8 @@ class SubcategorySeeder extends Seeder
 
             [
                 'category_id' => 1,
-                'name' => 'Smartwatches',
-                'slug' => Str::slug('Smartwatches'),
+                'name' => 'default',
+                'slug' => Str::slug('default'),
             ],
 
             /* TV, audio y video */
@@ -80,7 +80,6 @@ class SubcategorySeeder extends Seeder
                 'name' => 'Nintendo',
                 'slug' => Str::slug('Nintendo'),
             ],
-
             /* Computación */
 
             [
@@ -106,7 +105,6 @@ class SubcategorySeeder extends Seeder
                 'name' => 'Accesorios computadoras',
                 'slug' => Str::slug('Accesorios computadoras'),
             ],
-
             /* Moda */
             [
                 'category_id' => 5,
@@ -145,3 +143,5 @@ class SubcategorySeeder extends Seeder
         }
     }
 }
+          
+

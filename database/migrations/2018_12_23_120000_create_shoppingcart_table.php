@@ -29,3 +29,6 @@ class CreateShoppingcartTable extends Migration
         Schema::drop(config('cart.database.table'));
     }
 }
+
+
+

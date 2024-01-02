@@ -24,3 +24,5 @@ class ColorSeeder extends Seeder
         }
     }
 }
+
+

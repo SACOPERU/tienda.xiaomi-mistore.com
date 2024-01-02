@@ -36,3 +36,8 @@ class CreateBrandCategoryTable extends Migration
         Schema::dropIfExists('brand_category');
     }
 }
+
+
+
+
+

@@ -60,7 +60,6 @@ class CreateOrderPartnersTable extends Migration
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -71,3 +70,11 @@ class CreateOrderPartnersTable extends Migration
         Schema::dropIfExists('order_partners');
     }
 }
+
+
+
+
+
+
+
+

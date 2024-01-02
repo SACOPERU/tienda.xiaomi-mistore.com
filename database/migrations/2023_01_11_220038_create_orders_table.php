@@ -21,17 +21,8 @@ class CreateOrdersTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
 
-            //ppersona que recogera el pedido o lo reccionara
             $table->string('contact');
             $table->string('dni');
-            $table->string('phone',9);
-
-            //facturacion
-            $table->enum('tipo_doc',[1,3]); //1 factura y 3 boleta
-            $table->string('ruc')->nullable();
-            $table->string('razon_social')->nullable();
-            $table->string('direccion_fiscal')->default('')->nullable();
-
 
             $table->string('courrier')->nullable();
             $table->string('tracking_number')->nullable();
@@ -43,6 +34,15 @@ class CreateOrdersTable extends Migration
             $table->float('peso_paquete')->nullable();
             $table->string('observacion')->nullable();
 
+            $table->string('phone',9);
+
+            //facturacion
+            $table->enum('tipo_doc',[1,3]); //1 factura y 3 boleta
+
+            $table->string('ruc')->nullable();
+            $table->string('razon_social')->nullable();
+            $table->string('direccion_fiscal')->default('')->nullable();
+
             $table->enum('status', [Order::RESERVADO,Order::PAGADO, Order::DESPACHADO, Order::ENTREGADO, Order::ANULADO])->default(Order::RESERVADO);
             $table->enum('envio_type', [1, 2]);
 
@@ -53,9 +53,10 @@ class CreateOrdersTable extends Migration
             $table->string('puruchu')->nullable();
             $table->string('selected_store')->nullable();
 
-
             $table->float('shipping_cost');
+
             $table->float('total');
+
             $table->json('content');
 
             $table->unsignedBigInteger('department_id')->nullable();
@@ -86,6 +87,7 @@ class CreateOrdersTable extends Migration
         Schema::dropIfExists('orders');
     }
 }
+
 
 
 

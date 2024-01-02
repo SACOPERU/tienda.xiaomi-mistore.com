@@ -38,3 +38,5 @@ class CreateColorProductTable extends Migration
         Schema::dropIfExists('color_product');
     }
 }
+
+

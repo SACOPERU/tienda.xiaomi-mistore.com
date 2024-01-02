@@ -18,3 +18,4 @@ class SubcategoryFactory extends Factory
         ];
     }
 }
+

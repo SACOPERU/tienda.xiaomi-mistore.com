@@ -37,3 +37,5 @@ class CreateColorSizeTable extends Migration
         Schema::dropIfExists('color_size');
     }
 }
+
+

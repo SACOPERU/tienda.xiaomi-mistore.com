@@ -18,3 +18,4 @@ class CityFactory extends Factory
         ];
     }
 }
+ 

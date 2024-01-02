@@ -19,7 +19,7 @@ class PromocionSeeder extends Seeder
             [
                 'name' => 'Promocion Imagen',
                 'slug' => Str::slug('Promocion Imagen'),
-
+                 'ruta' => '/'
             ]
         ];
 

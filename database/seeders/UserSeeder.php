@@ -26,3 +26,5 @@ class UserSeeder extends Seeder
         ])->assignRole('admin');
     }
 }
+
+

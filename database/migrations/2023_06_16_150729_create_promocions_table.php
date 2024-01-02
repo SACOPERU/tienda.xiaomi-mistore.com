@@ -19,6 +19,7 @@ class CreatePromocionsTable extends Migration
             $table->string('name');
             $table->string('slug');
             $table->string('image');
+             $table->string('ruta');
 
             $table->timestamps();
         });
@@ -34,3 +35,8 @@ class CreatePromocionsTable extends Migration
         Schema::dropIfExists('promocions');
     }
 }
+
+
+
+
+

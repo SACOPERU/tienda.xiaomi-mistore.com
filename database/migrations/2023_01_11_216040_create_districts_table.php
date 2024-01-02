@@ -32,3 +32,9 @@ class CreateDistrictsTable extends Migration
         Schema::dropIfExists('districts');
     }
 }
+
+
+
+
+
+

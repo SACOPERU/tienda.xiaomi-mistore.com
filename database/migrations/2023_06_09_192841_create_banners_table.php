@@ -34,3 +34,8 @@ class CreateBannersTable extends Migration
         Schema::dropIfExists('banners');
     }
 }
+
+
+
+
+

@@ -18,6 +18,7 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('sku');
+            $table->string('bodega')->nullable();
             $table->integer('stock_flex')->nullable();
 
                 $table->string ('atocong')->nullable;
@@ -26,7 +27,8 @@ class CreateProductsTable extends Migration
                 $table->string ('huaylas')->nullable;
                 $table->string ('puruchu')->nullable;
 
-            $table->string('bodega');
+
+
             $table->string('slug');
             $table->text('description');
             $table->float('price');
@@ -36,6 +38,8 @@ class CreateProductsTable extends Migration
             $table->unsignedBigInteger('subcategory_id');
             $table->foreign('subcategory_id')->references('id')->on('subcategories')->onDelete('cascade');
 
+
+            
             $table->unsignedBigInteger('brand_id');
             $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
 
@@ -60,3 +64,4 @@ class CreateProductsTable extends Migration
         Schema::dropIfExists('products');
     }
 }
+

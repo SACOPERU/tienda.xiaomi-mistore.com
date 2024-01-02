@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -34,3 +35,5 @@ class CreateSessionsTable extends Migration
         Schema::dropIfExists('sessions');
     }
 }
+
+

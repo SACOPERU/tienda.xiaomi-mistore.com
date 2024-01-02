@@ -33,3 +33,4 @@ class SizeSeeder extends Seeder
         }
     }
 }
+

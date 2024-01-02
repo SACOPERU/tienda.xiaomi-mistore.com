@@ -17,9 +17,9 @@ class CategorySeeder extends Seeder
     public function run()
     {
         $categories = [
-            [
-                'name' => 'Celulares y tablets',
-                'slug' => Str::slug('Celulares y tablets'),
+              [
+                'name' => 'Default',
+                'slug' => Str::slug('Default'),
                 'icon' => '<i class="fas fa-mobile-alt"></i>'
             ],
             [
@@ -61,3 +61,4 @@ class CategorySeeder extends Seeder
 
     }
 }
+

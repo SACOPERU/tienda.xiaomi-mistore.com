@@ -30,3 +30,4 @@ class CreateDepartmentsTable extends Migration
         Schema::dropIfExists('departments');
     }
 }
+

@@ -96,9 +96,5 @@ Route::middleware(['auth'])->group(function () {
    //CONSULTA FLEXLINE
     Route::match(['get', 'post'], '/consulta-productos', [ProductflexController::class, 'consultaProductos'])->name('livewire.admin.consulta-productos');
     Route::match(['get', 'post'], '/consulta-precio', [ConsultaPrecioController::class, 'consultaPrecio'])->name('livewire.admin.consulta-precio');
-
-
-
-
-
 });
+

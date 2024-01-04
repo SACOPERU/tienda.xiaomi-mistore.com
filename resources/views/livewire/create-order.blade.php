@@ -249,11 +249,11 @@
                 <hr class="mt-4 mb-3">
                 <p class="flex justify-between items-center text-red-700 font-bold">
                     <span class="font-semibold text-lg">Total</span>
-                    @if ($envio_type == 1)
-                        S/ {{Cart::subtotal(2,'.')}}
-                    @else
-                        S/ {{Cart::subtotal(2,'.') + $shipping_cost}}
-                    @endif
+                    @php
+                        $subtotal = floatval(str_replace(',', '', Cart::subtotal(2, '.')));
+                        $total = $envio_type == 1 ? $subtotal : $subtotal + $shipping_cost;
+                    @endphp
+                    S/ {{ number_format($total, 2) }}
                 </p>
             </div>
         </div>

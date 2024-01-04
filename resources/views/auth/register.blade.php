@@ -2,7 +2,7 @@
     <x-jet-authentication-card>
         <x-slot name="logo">
             <a href="/">
-                <img class="navbar-brand-full app-header-logo" src="{{ asset('img/logo.png') }}" width="350">
+                <img class="navbar-brand-full app-header-logo" src="{{ asset('img/xiaomi.png') }}" width="300">
             </a>
             </x-slot>
 

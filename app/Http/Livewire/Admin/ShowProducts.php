@@ -1,33 +1,34 @@
 <?php
+// app/Http/Livewire/Admin/ShowProducts.php
 
 namespace App\Http\Livewire\Admin;
 
+use App\Exports\ProductsExport; // Ajusta el namespace según tu estructura de carpetas
 use App\Models\Product;
-use Illuminate\Support\Facades\Http;
 use Livewire\Component;
-
 use Livewire\WithPagination;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ShowProducts extends Component
 {
-
     use WithPagination;
 
     public $search;
 
-    public function updatingSearch(){
+    public function updatingSearch()
+    {
         $this->resetPage();
+    }
+
+    public function exportToExcel()
+    {
+        return Excel::download(new ProductsExport($this->search), 'products.xlsx');
     }
 
     public function render()
     {
-
-       // $bodega = Http::get('https://jsonplaceholder.typicode.com/');
-       // $bodegaArray = $bodega->json();
-
-        $products = Product::where('name', 'like','%'. $this->search.'%')->paginate(10);
+        $products = Product::where('name', 'like', '%' . $this->search . '%')->paginate(10);
 
         return view('livewire.admin.show-products', compact('products'))->layout('layouts.admin');
     }
-
 }

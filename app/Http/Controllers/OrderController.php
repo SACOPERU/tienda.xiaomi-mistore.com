@@ -53,7 +53,7 @@ class OrderController extends Controller
                 'Accept' => 'application/json',
             ])->post(config('services.izipay.url'), [
                 'amount' => $order->total * 100,
-                'currency' => 'USD',
+                'currency' => 'PEN',
                 'orderId' => $order->id,
                 'customer' => [
                     'reference' => auth()->id(),

@@ -149,7 +149,7 @@
                             <li x-data="{open: false}">
 
                                 <button x-on:click="open = !open "class="flex justify-center bg-red-500 py-2 w-full rounded-lg shadow">
-                                    <h2 class=" text-center text-lg font-bold">REALIZAR PAGO</h2>
+                                    <h2 class=" text-center text-lg font-bold"></h2>
                                   <img class="h-8 "src="https://www.izipay.pe/_nuxt/dist/img/logo.8e6aa05.png" alt="">
                                 </button>
 

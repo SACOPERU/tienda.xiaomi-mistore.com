@@ -10,9 +10,24 @@ class Order extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['id','total','created_at','update_at','status','content','selected_store'];
-    protected $fillable = ['total'];
-
+    protected $guarded = [
+    'id',
+    'name_order',
+    'phone_order',
+    'dni_order',
+    'ruc',
+    'razon_social',
+    'direccion_fiscal',
+    'name',
+    'dni',
+    'total',
+    'created_at',
+    'update_at',
+    'status',
+    'content',
+    'selected_store'
+];
+    protected $fillable = ['total','xmlData'];
 
                                 //PARA BITEL
     const RESERVADO     = 1; //21 VERIFICAR

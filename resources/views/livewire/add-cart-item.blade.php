@@ -1,7 +1,13 @@
 <div x-data>
 
     <p class="text-gray-700 mb-4">
-        <span class="font-semibold text-lg">Stock disponible:</span> {{$quantity}}
+        <span class="font-semibold text-lg">Stock disponible:</span>
+
+        @if ($quantity > 10)
+            +10
+        @else
+            {{ $quantity }}
+        @endif
     </p>
 
     <div class="flex">

@@ -95,7 +95,7 @@
                 hour = minute * 60,
                 day = hour * 24;
 
-            let countDown = new Date('Dec 30, 2024 18:14:00').getTime(),
+            let countDown = new Date('Jan 31, 2024 24:00:00').getTime(),
                 x = setInterval(function() {
                     let now = new Date().getTime(),
                         distance = countDown - now;

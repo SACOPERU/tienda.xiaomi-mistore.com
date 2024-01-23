@@ -39,16 +39,14 @@ class ProductsExport implements FromCollection, WithHeadings, WithMapping
             'BODEGA PURUCHUCO',
             'Precio',
             'Categoria',
+            'SubCategoria',
 
-
-
-            // Agrega más columnas según tu modelo Product
         ];
     }
 
     public function map($product): array
     {
-        // Mapea los campos que quieres exportar
+        
         return [
             $product->name,
             $product->sku,
@@ -59,7 +57,9 @@ class ProductsExport implements FromCollection, WithHeadings, WithMapping
             $product->puruchu,
             $product->price,
             $product->subcategory->category->name,
-            //$product->brand->name
+            $product->subcategory->name,
+        
+
         ];
     }
 }

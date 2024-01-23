@@ -76,9 +76,9 @@
 
                 <div>
                     <p class="text-lg fond-semibold uppercase">Datos de Contacto</p>
-                    <p class="text-sm">Persona que recibira el pedido: {{ $order->contact }}</p>
-                    <p class="text-sm">Telefono de contacto: {{ $order->phone }}</p>
-                    <p class="text-sm">Documento de Identidad: {{ $order->dni }}</p>
+                    <p class="text-sm">Persona que recibira el pedido: {{ $order->name_order }}</p>
+                    <p class="text-sm">Telefono de contacto: {{ $order->phone_order }}</p>
+                    <p class="text-sm">Documento de Identidad: {{ $order->dni_order }}</p>
                 </div>
 
             </div>
@@ -88,16 +88,16 @@
         <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
             <div class="grid grid-cols-2 gap-6 text-gray-700">
                 <div>
-                    @if ($order->tipo_doc == 3)
+                    @if ($order->tipo_doc == 2)
                     <p class="text-lg fond-semibold uppercase">Boleta</p>
                     @else
                     <p class="text-lg fond-semibold uppercase">Factura</p>
                     @endif
 
 
-                    @if ($order->tipo_doc == 3)
+                    @if ($order->tipo_doc == 2)
                         <p>DNI :{{$order->dni}}</p>
-                        <p>NOMBRE :{{$order->razon_social}}</p>
+                        <p>NOMBRE :{{$order->name}}</p>
 
                     @else
                         <p>RUC :{{$order->ruc}}</p>

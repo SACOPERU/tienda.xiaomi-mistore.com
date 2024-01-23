@@ -28,22 +28,19 @@
 
                 @endforeach
             </ul>
-<!-- {{$marca}} -_- -->
+<!-- {{ $marca }}
 
-            <h2 class="font-semibold text-center mt-4 mb-2">Marcas</h2>
-            <ul class="divide-y divide-red-700">
-                @foreach ($category->brands as $brand )
+                <h2 class="font-semibold text-center mt-4 mb-2">Marcas</h2>
+                <ul class="divide-y divide-red-700">
+                @foreach ($category->brands as $brand)
+                <li class="py-2 text-sm">
+                        <a class="cursor-pointer hover:text-red-500 capitalize {{ $marca == $brand->name ? 'text-red-700 font-semibold' : '' }}"
+                            wire:click="$set('marca', '{{ $brand->name }}')"
 
-                    <li class="py-2 text-sm">
-                        <a class="cursor-pointer hover:text-red-500 capitalize {{ $marca == $brand->name ? 'text-red-700 font-semibold' : ''}}"
-                            wire:click="$set('marca', '{{$brand->name}}')"
-
-                            >{{$brand->name}}</a>
+                            >{{ $brand->name }}</a>
                     </li>
-
                 @endforeach
-            </ul>
-
+            </ul>-->
                 <x-jet-button class="mt-4" wire:click="limpiar">
                     Eliminar Filtros
                 </x-jet-button>

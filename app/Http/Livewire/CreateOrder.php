@@ -14,19 +14,40 @@ class CreateOrder extends Component
 {
 
     public $envio_type = 1;
+    //enum
     public $tipo_doc = '';
-    public $contact, $phone, $address, $references, $shipping_cost = 0, $dni, $ruc, $razon_social, $direccion_fiscal;
+    public $tipo_identidad = '';
+
     public $departments, $cities = [], $districts = [];
     public $department_id = "", $city_id = "", $district_id = "";
     public  $atocong, $jockeypz, $megaplz, $huaylas, $puruchu;
     public $selectedStore = '';
+  	public  $zona = '',
+  	public $cost = '',
+
+    public
+        $name_order,
+        $phone_order,
+        $dni_order,
+        $ruc,
+        $razon_social,
+        $direccion_fiscal,
+        $name,
+        $dni,
+        $total,
+        $content,
+        $address,
+        $references,
+        $envio,
+        $shipping_cost = 0;
 
     public $rules = [
-        'contact' => 'required',
-        'phone' => 'required',
+        'name_order' => 'required',
+        'phone_order' => 'required',
+        'dni_order' => 'required',
         'envio_type' => 'required',
-        'dni' => 'required'
     ];
+
 
     public function mount()
     {
@@ -52,12 +73,24 @@ class CreateOrder extends Component
 
     public function updatedCityId($value)
     {
+        $district = District::where('city_id', $value)->first();
 
-        $city = City::find($value);
+        if ($district) {
+            // Carga la relación 'city'
+            $district->load('city');
 
-        $this->shipping_cost = $city->cost;
-        $this->districts = District::where('city_id', $value)->get();
+            $this->shipping_cost = $district->cost;
+            $this->districts = District::where('city_id', $value)->get();
+
+            // Almacena la zona en la propiedad $zona
+            $this->zona = $district->zona;
+        } else {
+            $this->shipping_cost = 0;
+            $this->districts = collect();
+            $this->zona = null; // Asegúrate de inicializar $zona si no hay distrito
+        }
     }
+
 
     public function create_order()
     {
@@ -75,13 +108,16 @@ class CreateOrder extends Component
 
         $order = new Order();
 
- 	    $order->user_id = auth()->user()->id;
-        $order->contact = $this->contact;
-        $order->phone = $this->phone;
+        $order->user_id = auth()->user()->id;
+        $order->name_order = $this->name_order;
+        $order->phone_order = $this->phone_order;
+        $order->dni_order = $this->dni_order;
+        $order->name = strtoupper($this->name);
         $order->dni = $this->dni;
         $order->tipo_doc =  $this->tipo_doc;
+        $order->tipo_identidad = $this->tipo_identidad;
         $order->ruc = $this->ruc;
-        $order->razon_social = $this->razon_social;
+        $order->razon_social = strtoupper($this->razon_social);
         $order->envio_type = $this->envio_type;
         $order->direccion_fiscal = $this->direccion_fiscal;
         $order->shipping_cost = 0;
@@ -90,7 +126,23 @@ class CreateOrder extends Component
         $order->content = Cart::content();
 
         if ($this->envio_type == 2) {
-            // Código existente para envío_type igual a 2
+            $newProduct = [
+                'id' => 999,
+                'name' => $this->zona,
+                'qty' => 1,
+                'price' => $this->cost,
+                'weight' => 550,
+                'options' => [
+                    'sku' => $this->zona,
+                    'image' => null,
+                    'size_id' => null,
+                    'color_id' => null,
+                ],
+                'subtotal' => $this->cost, // Usa la propiedad $shipping_cost directamente
+            ];
+
+
+            Cart::add($newProduct);
 
             $order->shipping_cost = $this->shipping_cost;
             $order->department_id = $this->department_id;
@@ -98,17 +150,15 @@ class CreateOrder extends Component
             $order->district_id = $this->district_id;
             $order->address = $this->address;
             $order->references = $this->references;
-
+            $order->selected_store = '01-CH-PRINCIPAL';
         } elseif ($this->envio_type == 1) {
-            // Agrega tu lógica específica para envío_type igual a 1 aquí
             $order->atocong = $this->atocong;
             $order->jockeypz = $this->jockeypz;
             $order->megaplz = $this->megaplz;
             $order->huaylas = $this->huaylas;
             $order->puruchu = $this->puruchu;
+            $order->selected_store = $this->selectedStore;
         }
-
-        $order->selected_store = $this->selectedStore;
 
         $order->save();
 
@@ -117,7 +167,6 @@ class CreateOrder extends Component
         }
 
         Cart::destroy();
-        //dd($order);
 
         return redirect()->route('orders.payment', $order);
     }

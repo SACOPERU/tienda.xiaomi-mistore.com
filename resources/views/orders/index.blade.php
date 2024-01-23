@@ -2,9 +2,9 @@
 
     <div class="container py-12">
 
-        <section class="grid grid-cols-5 gap-6 text-white">
+        <section class="flex flex-wrap justify-around gap-6 text-white">
 
-            <a href="{{ route('orders.index') . "?status=1"}}" class="bg-red-500 bg-opacity-75 rounded-lg px-12 pt-8 pb-4">
+            <a href="{{ route('orders.index') . "?status=1"}}" class="order-card bg-red-500 bg-opacity-75 rounded-lg">
                 <p class="text-center text-2xl">
                     {{$reservado}}
                 </p>
@@ -14,7 +14,7 @@
                 </p>
             </a>
 
-            <a href="{{ route('orders.index') . "?status=2"}}" class="bg-gray-500 bg-opacity-75 rounded-lg px-12 pt-8 pb-4">
+            <a href="{{ route('orders.index') . "?status=2"}}" class="order-card bg-gray-500 bg-opacity-75 rounded-lg">
                 <p class="text-center text-2xl">
                     {{$pagado}}
                 </p>
@@ -24,7 +24,7 @@
                 </p>
             </a>
 
-            <a href="{{ route('orders.index') . "?status=3"}}" class="bg-yellow-500 bg-opacity-75 rounded-lg px-12 pt-8 pb-4">
+            <a href="{{ route('orders.index') . "?status=3"}}" class="order-card bg-yellow-500 bg-opacity-75 rounded-lg">
                 <p class="text-center text-2xl">
                     {{$despachado}}
                 </p>
@@ -34,7 +34,7 @@
                 </p>
             </a>
 
-            <a href="{{ route('orders.index') . "?status=4"}}" class="bg-pink-500 bg-opacity-75 rounded-lg px-12 pt-8 pb-4">
+            <a href="{{ route('orders.index') . "?status=4"}}" class="order-card bg-pink-500 bg-opacity-75 rounded-lg">
                 <p class="text-center text-2xl">
                     {{$entregado}}
                 </p>
@@ -44,7 +44,7 @@
                 </p>
             </a>
 
-            <a href="{{ route('orders.index') . "?status=5"}}" class="bg-green-500 bg-opacity-75 rounded-lg px-12 pt-8 pb-4">
+            <a href="{{ route('orders.index') . "?status=5"}}" class="order-card bg-green-500 bg-opacity-75 rounded-lg">
                 <p class="text-center text-2xl">
                     {{$anulado}}
                 </p>
@@ -141,5 +141,22 @@
 
     </div>
 
+    <style>
+        /* Estilos para dispositivos móviles */
+        .order-card {
+            width: calc(50% - 1rem); /* 2 elementos en una fila */
+            margin-bottom: 1rem; /* Agregar espacio entre los elementos */
+            border-radius: 10px; /* Bordes redondeados */
+            padding: 1rem; /* Espaciado interno */
+            text-align: center; /* Texto centrado */
+        }
+
+        /* Estilos para pantallas más grandes (a partir de md) */
+        @media (min-width: 768px) {
+            .order-card {
+                width: calc(20% - 1.5rem); /* 5 elementos en una fila */
+            }
+        }
+    </style>
 </x-app-layout>
 @livewire('footer')

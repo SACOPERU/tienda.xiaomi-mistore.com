@@ -17,6 +17,7 @@ use App\Http\Livewire\Admin\ShowDepartment;
 use App\Http\Livewire\Admin\UserComponent;
 use App\Http\Controllers\Admin\PromocionController;
 use App\Http\Controllers\Admin\LogoTiendaController;
+use App\Http\Controllers\Admin\ConsultaPrecioTachadoController;
 
 use App\Http\Livewire\Admin\ShowBanner;
 use App\Http\Livewire\Admin\ShowPromocion;
@@ -96,5 +97,7 @@ Route::middleware(['auth'])->group(function () {
    //CONSULTA FLEXLINE
     Route::match(['get', 'post'], '/consulta-productos', [ProductflexController::class, 'consultaProductos'])->name('livewire.admin.consulta-productos');
     Route::match(['get', 'post'], '/consulta-precio', [ConsultaPrecioController::class, 'consultaPrecio'])->name('livewire.admin.consulta-precio');
+	Route::match(['get', 'post'], '/consulta-precio-tachado', [ConsultaPrecioTachadoController::class, 'consultaPrecioTachado'])->name('livewire.admin.consulta-precio-tachado');
+
 });
 

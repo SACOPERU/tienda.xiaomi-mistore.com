@@ -21,8 +21,27 @@ class CreateOrdersTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
 
-            $table->string('contact');
+
+            //Order
+            $table->string('name_order');
+            $table->string('phone_order',9);
+            $table->string('dni_order');
+
+            //facturacion
+            $table->enum('tipo_doc',[1,2]); //1 factura y 2 boleta
+
+            //facturacion
+            $table->string('ruc')->nullable();
+            $table->string('razon_social')->nullable();
+            $table->string('direccion_fiscal')->default('')->nullable();
+            //boleta
+            $table->string('name');
             $table->string('dni');
+
+            //flexline
+            $table->enum('tipo_identidad',[1,4,7,6]);
+           //$table->enum('tipo_persona',[01,02]);
+
 
             $table->string('courrier')->nullable();
             $table->string('tracking_number')->nullable();
@@ -33,15 +52,6 @@ class CreateOrdersTable extends Migration
             $table->float('largo_paquete')->nullable();
             $table->float('peso_paquete')->nullable();
             $table->string('observacion')->nullable();
-
-            $table->string('phone',9);
-
-            //facturacion
-            $table->enum('tipo_doc',[1,3]); //1 factura y 3 boleta
-
-            $table->string('ruc')->nullable();
-            $table->string('razon_social')->nullable();
-            $table->string('direccion_fiscal')->default('')->nullable();
 
             $table->enum('status', [Order::RESERVADO,Order::PAGADO, Order::DESPACHADO, Order::ENTREGADO, Order::ANULADO])->default(Order::RESERVADO);
             $table->enum('envio_type', [1, 2]);

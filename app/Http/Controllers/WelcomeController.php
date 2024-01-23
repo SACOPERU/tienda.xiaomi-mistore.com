@@ -16,25 +16,25 @@ class WelcomeController extends Controller
     public function __invoke()
     {
         if (auth()->user()) {
-            $reservado = Order::where('status', 1)
+            $reservedOrdersCount = Order::where('status', 1)
                 ->where('user_id', auth()->user()->id)
                 ->count();
 
-            if ($reservado) {
-                $mensaje = "Usted tiene $reservado ordenes reservadas. <a class='font-bold href='" . route('orders.index') . "?status=1'>Ir a pagar</a>";
+            if ($reservedOrdersCount) {
+                $message = "Usted tiene $reservedOrdersCount órdenes reservadas. <a class='font-bold' href='" . route('orders.index') . "?status=1'>Ir a pagar</a>";
 
                 // Guardar la fecha y hora actual en la sesión
                 Session::put('flash.banner_time', now());
-                session()->flash('flash.banner', $mensaje);
+                session()->flash('flash.banner', $message);
             }
         }
 
         // Verificar si ha pasado el tiempo especificado (3 minutos) y eliminar el mensaje
         $bannerTime = Session::get('flash.banner_time');
         if ($bannerTime && $bannerTime->diffInMinutes(now()) >= 3) {
-            Session::forget('flash.banner_time');
-            Session::forget('flash.banner');
+            Session::forget(['flash.banner_time', 'flash.banner']);
         }
+
 
         // Resto del código
         $categories = Category::where('name', '!=', 'default')->get();

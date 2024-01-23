@@ -69,40 +69,41 @@
                 </thead>
 
                 <tbody class="divide-y divide-gray-200">
-                       @foreach ($items as $item )
+                    @foreach ($items as $item)
+                        @if (!in_array($item->name, ['ZONA 1', 'ZONA 2', 'ZONA 3']))
+                            <tr>
+                                <td>
+                                    <div class="flex">
+                                        <img class="h-15 w-20 object-cover mr-4" src="{{ $item->options->image }}" alt="">
+                                        <article>
+                                            <h1 class="font-bold">{{ $item->name }}</h1>
+                                            <h1 class="font-bold">{{ $item->options->sku }}</h1>
+                                            <div class="flex text-xs">
+                                                @isset ($item->options->color)
+                                                    Color: {{ __($item->options->color) }}
+                                                @endisset
 
-                    <tr>
-                        <td>
-                            <div class="flex">
-                                <img class=" h-15 w-20 object-cover mr-4" src="{{$item->options->image}}" alt="">
-                                <article>
-                                    <h1 class="font-bold">{{$item->name}}</h1>
-                                    <h1 class="font-bold">{{$item->options->sku}}</h1>
-                                    <div class="flex text-xs">
-                                            @isset ($item->options->color)
-                                               Color: {{__($item->options->color)}}
-                                            @endisset
-
-                                            @isset ($item->options->size)
-                                            Color: {{__($item->options->size)}}
-                                            @endisset
-
+                                                @isset ($item->options->size)
+                                                    Size: {{ __($item->options->size) }}
+                                                @endisset
+                                            </div>
+                                        </article>
                                     </div>
-                                </article>
-                            </div>
-                        </td>
-                        <td class="text-center">
-                               S/ {{$item->price}}
-                        </td>
-                        <td class="text-center">
-                                {{$item->qty}}
-                        </td>
-                        <td class="text-center">
-                            S/ {{$item->price * $item->qty }}
-                        </td>
-                    </tr>
-                       @endforeach
+                                </td>
+                                <td class="text-center">
+                                    S/ {{ $item->price }}
+                                </td>
+                                <td class="text-center">
+                                    {{ $item->qty }}
+                                </td>
+                                <td class="text-center">
+                                    S/ {{ $item->price * $item->qty }}
+                                </td>
+                            </tr>
+                        @endif
+                    @endforeach
                 </tbody>
+
             </table>
 
         </div>

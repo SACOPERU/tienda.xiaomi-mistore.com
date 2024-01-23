@@ -48,44 +48,18 @@ Route::middleware(['auth'])->group(function(){
 
 
 
-
     Route::get('orders/{vista}',[OrderController::class, 'vista'])->name('orders.vista');
 
    //IZIPAY
 
-    Route::post('/paid/izipay',[PaidController::class,'izipay'])->name('paid.izipay');
+    Route::match(['get', 'post'],'/paid/izipay',[PaidController::class,'izipay'])->name('paid.izipay');
 
     Route::get('orders/{order}/show', [OrderController::class,'show'])->name('orders.show');
-
+  
+  	//Route::match(['get', 'post'], '/izipay/{order}', [PaidController::class, 'izipay'])->name('paid.izipay');
 
 
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //Route::get('paides/{show}',[PaidController::class, 'show'])->name('paides.show');

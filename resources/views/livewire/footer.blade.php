@@ -10,7 +10,7 @@
                             <a href="https://tienda.xiaomi-mistore.com/orders" class="hover:underline">Seguimiento de Orden</a>
                         </li>
                         <li class="mb-4">
-                            <a href="" class="hover:underline">Atención por Whatsapp Xiaomi</a>
+                            <a href="https://wa.link/b5bq3y" class="hover:underline">Atención por Whatsapp Xiaomi</a>
                         </li>
                         <li>
                             <a href="" class="hover:underline">servicioalcliente@snap-electronics.com</a>
@@ -64,8 +64,8 @@
         </div>
         <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
         <div class="sm:flex sm:items-center sm:justify-between">
-            <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/"
-                    class="hover:underline">Soluciones & Comunicaciones</a>. All Rights Reserved.
+            <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a
+                    class="hover:underline">Soluciones & Comunicaciones del Peru S.A.C</a>. All Rights Reserved.
             </span>
             <div class="flex mt-2 sm:justify-center sm:mt-0">
 

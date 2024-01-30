@@ -14,10 +14,6 @@ class District extends Model
     public function orders(){
         return $this->hasMany(Order::class);
     }
-
-    public function order_partners(){
-        return $this->hasMany(OrderPartner::class);
-    }
   
       public function city()
     {

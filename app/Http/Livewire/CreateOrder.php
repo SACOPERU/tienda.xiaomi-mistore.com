@@ -22,8 +22,8 @@ class CreateOrder extends Component
     public $department_id = "", $city_id = "", $district_id = "";
     public  $atocong, $jockeypz, $megaplz, $huaylas, $puruchu;
     public $selectedStore = '';
-  	public  $zona = '';
-  	public $cost;
+  	public  $zona = '',
+  	public $cost = '',
 
     public
         $name_order,
@@ -130,7 +130,7 @@ class CreateOrder extends Component
                 'id' => 999,
                 'name' => $this->zona,
                 'qty' => 1,
-                'price' => $this->shipping_cost,
+                'price' => $this->cost,
                 'weight' => 550,
                 'options' => [
                     'sku' => $this->zona,
@@ -138,7 +138,7 @@ class CreateOrder extends Component
                     'size_id' => null,
                     'color_id' => null,
                 ],
-                'subtotal' => $this->shipping_cost, // Usa la propiedad $shipping_cost directamente
+                'subtotal' => $this->cost, // Usa la propiedad $shipping_cost directamente
             ];
 
 

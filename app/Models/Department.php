@@ -21,4 +21,8 @@ class Department extends Model
         return $this->hasMany(Order::class);
     }
 
+    public function order_partners(){
+        return $this->hasMany(OrderPartner::class);
+    }
+
 }

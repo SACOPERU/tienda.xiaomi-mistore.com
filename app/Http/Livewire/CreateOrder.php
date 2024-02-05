@@ -22,8 +22,8 @@ class CreateOrder extends Component
     public $department_id = "", $city_id = "", $district_id = "";
     public  $atocong, $jockeypz, $megaplz, $huaylas, $puruchu;
     public $selectedStore = '';
-  	public  $zona = '';
-  	public $cost = '';
+  	public  $zona = '',
+  	public $cost = '',
 
     public
         $name_order,

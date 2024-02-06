@@ -14,7 +14,7 @@ use App\Models\OrderPartner;
 
 
 Route::get('/', ShowProducts::class)->name('partner.index');
-Route::get('search', SearchController::class)->name('search');
+//Route::get('search', SearchController::class)->name('search');
 Route::get('shopping-cart-partner', ShoppingCartPartner::class)->name('partner.shopping-cart-partner');
 
 
